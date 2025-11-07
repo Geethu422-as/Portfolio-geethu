@@ -1,0 +1,206 @@
+
+
+/*
+  Custom styles for Geethu A S Portfolio
+  This file contains all the custom CSS styles for the portfolio website
+*/
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Gradient text effect for the name and special elements */
+.text-gradient {
+    background-image: linear-gradient(to right, #fb923c, #f59e0b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+
+/* Navigation styles */
+.nav-link {
+    transition: color 0.2s ease-in-out;
+    color: #d1d5db; /* gray-300 */
+    text-decoration: none;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #fb923c; /* orange-400 */
+}
+
+.nav-link.active {
+    color: #fb923c; /* orange-400 */
+    font-weight: 500;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, #fb923c, #f59e0b);
+    border-radius: 1px;
+}
+
+/* Custom button hover effects */
+.btn-primary {
+    background: linear-gradient(to right, #f97316, #d97706);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(to right, #ea580c, #b45309);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(249, 115, 22, 0.3);
+}
+
+/* Card hover effects */
+.card-hover {
+    transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Smooth animations for sections */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #fb923c;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ea580c;
+}
+
+/* Responsive design improvements */
+@media (max-width: 768px) {
+    .text-gradient {
+        font-size: 2.5rem;
+    }
+    
+    .nav-link {
+        display: block;
+        padding: 8px 0;
+    }
+    
+    .mobile-menu {
+        display: block;
+    }
+}
+
+/* Loading animation for images */
+.image-loading {
+    background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Special effects for project cards */
+.project-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s;
+    z-index: 1;
+}
+
+.project-card:hover::before {
+    left: 100%;
+}
+
+/* Smooth reveal animation */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-slideUp {
+    animation: slideUp 0.8s ease forwards;
+}
+
+/* Enhance focus states for accessibility */
+.nav-link:focus,
+button:focus,
+a:focus {
+    outline: 2px solid #fb923c;
+    outline-offset: 2px;
+}
+
+/* Custom gradient borders */
+.gradient-border {
+    position: relative;
+    background: #1f2937;
+    border-radius: 8px;
+}
+
+.gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: linear-gradient(45deg, #fb923c, #f59e0b);
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: subtract;
+}
